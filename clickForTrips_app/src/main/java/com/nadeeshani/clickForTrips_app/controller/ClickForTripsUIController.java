@@ -7,13 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ClickForTripsUIController {
-    @RequestMapping("/")
-    @ResponseBody
-    String text(){
-        return "Hello";
-    }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     String index(){
         return "index";
     }
