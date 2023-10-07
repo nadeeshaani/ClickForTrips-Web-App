@@ -6,6 +6,6 @@ import com.nadeeshani.clickForTrips_app.model.Customer;
 import java.util.List;
 
 public interface IVehicleService {
-    List<Customer> fetchAllCustomerDetails();
+    List<Customer> fetchAllCustomers();
     List<Booking> fetchAllBookings();
 }

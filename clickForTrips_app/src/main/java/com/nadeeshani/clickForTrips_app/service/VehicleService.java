@@ -19,12 +19,12 @@ public class VehicleService implements IVehicleService{
     private BookingRepository bookingRepository;
 
     @Override
-    public List<Customer> fetchAllCustomerDetails() {
-        return null;
+    public List<Customer> fetchAllCustomers() {
+        return customerRepository.findAll();
     }
 
     @Override
     public List<Booking> fetchAllBookings() {
-        return null;
+        return bookingRepository.findAll();
     }
 }
