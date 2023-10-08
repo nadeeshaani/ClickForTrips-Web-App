@@ -1,12 +1,11 @@
 package com.nadeeshani.clickForTrips_app.controller;
 
+import com.nadeeshani.clickForTrips_app.model.Customer;
 import com.nadeeshani.clickForTrips_app.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ClickForTripsUIController {
@@ -28,6 +27,23 @@ public class ClickForTripsUIController {
     public String showAllBookings(Model model){
         model.addAttribute("bookings", vehicleService.fetchAllBookings());
         return "booking";
+    }
+
+    @PostMapping("/customer/add")
+    public String addCategory(Model model){
+        model.addAttribute("customer", new Customer());
+        return "addCustomer";
+    }
+
+    @PostMapping("/booking/add")
+    public String addBooking(Model model){
+        return "addBooking";
+    }
+
+    @PostMapping("/customer/save")
+    public String saveCustomer(@ModelAttribute("customer")Customer customer){
+        vehicleService.saveCustomer(customer);
+        return "redirect:/customer";
     }
 
 

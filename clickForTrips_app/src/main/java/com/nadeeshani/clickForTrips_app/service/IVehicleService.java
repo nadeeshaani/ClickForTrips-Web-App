@@ -8,4 +8,6 @@ import java.util.List;
 public interface IVehicleService {
     List<Customer> fetchAllCustomers();
     List<Booking> fetchAllBookings();
+
+    void saveCustomer(Customer customer);
 }
