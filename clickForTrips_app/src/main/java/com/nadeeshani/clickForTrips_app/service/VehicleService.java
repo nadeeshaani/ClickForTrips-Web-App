@@ -38,4 +38,14 @@ public class VehicleService implements IVehicleService{
     public void saveBooking(Booking booking) {
         bookingRepository.save(booking);
     }
+
+    public void deleteBooking(String bookingId) {
+        bookingRepository.deleteById(Long.valueOf(bookingId));
+
+    }
+
+    @Override
+    public void deleteCustomer(String customerId) {
+        customerRepository.deleteById(Long.valueOf(customerId));
+    }
 }

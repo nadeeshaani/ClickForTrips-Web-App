@@ -12,4 +12,8 @@ public interface IVehicleService {
     void saveCustomer(Customer customer);
 
     void saveBooking(Booking booking);
+
+    void deleteBooking(String bookingId);
+
+    void deleteCustomer(String customerId);
 }

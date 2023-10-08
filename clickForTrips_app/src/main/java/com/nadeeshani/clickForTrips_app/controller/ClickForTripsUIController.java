@@ -56,4 +56,19 @@ public class ClickForTripsUIController {
     }
 
 
+    @PostMapping("/customer/delete")
+    public String deleteCustomer(@RequestParam("customerId")String customerId){
+        vehicleService.deleteCustomer(customerId);
+        return "redirect:/customer";
+    }
+
+    @PostMapping("/booking/delete")
+    public String deleteBooking(@RequestParam("bookingId")String bookingId){
+        vehicleService.deleteBooking(bookingId);
+        return "redirect:/booking";
+    }
+
+
+
+
 }
