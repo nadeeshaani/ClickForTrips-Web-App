@@ -40,24 +40,25 @@
         <table class="table table-striped table-bordered table-hover">
             <thead class="thead-dark">
             <th>Booking ID</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Message</th>
-            <th>Milleage</th>
-            <th>Time</th>
             <th>Username</th>
+            <th>Vehicle Number</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Milleage</th>
+            <th>Message</th>
             </thead>
 
             <tbody>
             <tr th:each="booking : ${bookings}">
                 <td th:text="${booking.id}"></td>
-                <td th:text="${booking.date}"></td>
-                <td th:text="${booking.location}"></td>
-                <td th:text="${booking.message}"></td>
-                <td th:text="${booking.mileage}"></td>
-                <td th:text="${booking.time}"></td>
                 <td th:text="${booking.username}"></td>
-
+                <td th:text="${booking.vehicleNo}"></td>
+                <td th:text="${booking.date}"></td>
+                <td th:text="${booking.time}"></td>
+                <td th:text="${booking.location}"></td>
+                <td th:text="${booking.mileage}"></td>
+                <td th:text="${booking.message}"></td>
             </tr>
             </tbody>
         </table>

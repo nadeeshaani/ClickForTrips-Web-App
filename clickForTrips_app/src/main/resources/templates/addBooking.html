@@ -20,16 +20,52 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label front-weight-bold" >Location</label>
+            <label class="col-sm-2 col-form-label front-weight-bold">Location</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" th:field="*{location}" required>
+                <select class="form-control" name="location" th:field="*{location}" required>
+                    <option value="">Select location</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kegalle">Kegalle</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Vavuniya">Vavuniya</option>
+
+                </select>
             </div>
         </div>
+
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label front-weight-bold" >Message</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" th:field="*{message}" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label front-weight-bold" >Vehicle Number</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" th:field="*{vehicleNo}" required>
             </div>
         </div>
 
@@ -47,12 +83,43 @@
             </div>
         </div>
 
+
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label front-weight-bold" >Time</label>
+            <label class="col-sm-2 col-form-label front-weight-bold">Time</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" th:field="*{time}" required>
+                <select class="form-control" name="time" th:field="*{time}" required>
+                    <option value="">Select preferred time</option>
+                    <option value="12 AM">12 AM</option>
+                    <option value="1 AM">1 AM</option>
+                    <option value="2 AM">2 AM</option>
+                    <option value="3 AM">3 AM</option>
+                    <option value="4 AM">4 AM</option>
+                    <option value="5 AM">5 AM</option>
+                    <option value="6 AM">6 AM</option>
+7                   <option value="7 AM">7 AM</option>
+                    <option value="8 AM">8 AM</option>
+                    <option value="9 AM">9 AM</option>
+                    <option value="10 AM">10 AM</option>
+                    <option value="11 AM">11 AM</option>
+                    <option value="12 NOON">12 NOON</option>
+                    <option value="1 PM">1 PM</option>
+                    <option value="2 PM">2 PM</option>
+                    <option value="3 PM">3 PM</option>
+                    <option value="4 PM">4 PM</option>
+                    <option value="5 PM">5 PM</option>
+                    <option value="6 PM">6 PM</option>
+                    <option value="7 PM">7 PM</option>
+                    <option value="8 PM">8 PM</option>
+                    <option value="9 PM">9 PM</option>
+                    <option value="10 PM">10 PM</option>
+                    <option value="11 PM">11 PM</option>
+
+
+
+                </select>
             </div>
         </div>
+
         <div align="center">
             <button type="submit" class="btn btn-dark">Add</button>
             <a href="javascript:history.back()" class="btn btn-dark">CANCEL</a>
