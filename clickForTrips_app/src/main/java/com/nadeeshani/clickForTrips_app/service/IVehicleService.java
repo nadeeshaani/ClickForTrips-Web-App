@@ -10,4 +10,6 @@ public interface IVehicleService {
     List<Booking> fetchAllBookings();
 
     void saveCustomer(Customer customer);
+
+    void saveBooking(Booking booking);
 }

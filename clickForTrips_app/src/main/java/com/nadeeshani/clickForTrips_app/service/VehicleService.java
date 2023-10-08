@@ -33,4 +33,9 @@ public class VehicleService implements IVehicleService{
         customerRepository.save(customer);
 
     }
+
+    @Override
+    public void saveBooking(Booking booking) {
+        bookingRepository.save(booking);
+    }
 }

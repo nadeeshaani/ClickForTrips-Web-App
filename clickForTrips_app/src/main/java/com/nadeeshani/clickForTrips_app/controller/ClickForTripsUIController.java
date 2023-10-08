@@ -1,5 +1,6 @@
 package com.nadeeshani.clickForTrips_app.controller;
 
+import com.nadeeshani.clickForTrips_app.model.Booking;
 import com.nadeeshani.clickForTrips_app.model.Customer;
 import com.nadeeshani.clickForTrips_app.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class ClickForTripsUIController {
 
     @PostMapping("/booking/add")
     public String addBooking(Model model){
+        model.addAttribute("booking", new Booking());
+        model.addAttribute("customers", vehicleService.fetchAllCustomers());
         return "addBooking";
     }
 
@@ -44,6 +47,12 @@ public class ClickForTripsUIController {
     public String saveCustomer(@ModelAttribute("customer")Customer customer){
         vehicleService.saveCustomer(customer);
         return "redirect:/customer";
+    }
+
+    @PostMapping("/booking/save")
+    public String saveBooking(@ModelAttribute("booking") Booking booking){
+        vehicleService.saveBooking(booking);
+        return "redirect:/booking";
     }
 
 
