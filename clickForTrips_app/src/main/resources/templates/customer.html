@@ -58,9 +58,9 @@
                     <td th:text="${customer.username}"></td>
                     <td>
                         <div class="row mx-auto">
-                            <form method="post" action="/cutomer/edit" class="mx-2">
+                            <form method="post" th:action="@{/cutomer/edit}" class="mx-2">
                                 <input type="hidden" name="customerId" th:value="${customer.id}"/>
-                                <button type="submit" name="submit" value="value" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>
+                                <button type="submit" name="submit" value="value" title="Edit"><i class="material-icons">&#xE254;</i></button>
                             </form>
                             <form method="post" onSubmit="return confirm('Are you sure you want to delete?');" action="/customer/delete" class="mx-2">
                                 <input type="hidden" name="customerId" th:value="${customer.id}"/>

@@ -50,7 +50,7 @@ public class ClickForTripsUIController {
     }
 
     @PostMapping("/booking/save")
-    public String saveBooking(@ModelAttribute("booking") Booking booking){
+    public String saveBooking(@ModelAttribute("booking")Booking booking){
         vehicleService.saveBooking(booking);
         return "redirect:/booking";
     }
