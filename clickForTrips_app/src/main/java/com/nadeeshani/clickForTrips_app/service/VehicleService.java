@@ -48,4 +48,14 @@ public class VehicleService implements IVehicleService{
     public void deleteCustomer(String customerId) {
         customerRepository.deleteById(Long.valueOf(customerId));
     }
+
+    @Override
+    public Customer fetchCustomer(String customerId) {
+        return customerRepository.findById(Long.valueOf(customerId)).orElse(null);
+    }
+
+    @Override
+    public Booking fetchBooking(String bookingId) {
+        return bookingRepository.findById(Long.valueOf(bookingId)).orElse(null);
+    }
 }

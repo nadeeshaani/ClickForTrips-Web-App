@@ -55,6 +55,19 @@ public class ClickForTripsUIController {
         return "redirect:/booking";
     }
 
+    @PostMapping("/customer/edit")
+    public String editCustomer(@RequestParam("customerId")String customerId, Model model){
+        model.addAttribute("customer", vehicleService.fetchCustomer(customerId));
+        return "editCustomer";
+    }
+
+    @PostMapping("/booking/edit")
+    public String editBooking(@RequestParam("bookingId")String bookingId, Model model){
+        model.addAttribute("booking", vehicleService.fetchBooking(bookingId));
+        model.addAttribute("category", vehicleService.fetchAllCustomers());
+        return "editBooking";
+    }
+
 
     @PostMapping("/customer/delete")
     public String deleteCustomer(@RequestParam("customerId")String customerId){

@@ -16,4 +16,8 @@ public interface IVehicleService {
     void deleteBooking(String bookingId);
 
     void deleteCustomer(String customerId);
+
+    Customer fetchCustomer(String customerId);
+
+    Booking fetchBooking(String bookingId);
 }
