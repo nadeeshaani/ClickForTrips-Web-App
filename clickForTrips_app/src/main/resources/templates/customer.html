@@ -58,7 +58,7 @@
                     <td th:text="${customer.username}"></td>
                     <td>
                         <div class="row mx-auto">
-                            <form method="post" th:action="@{/cutomer/edit}" class="mx-2">
+                            <form method="post" th:action="@{/customer/edit}" class="mx-2">
                                 <input type="hidden" name="customerId" th:value="${customer.id}"/>
                                 <button type="submit" name="submit" value="value" title="Edit"><i class="material-icons">&#xE254;</i></button>
                             </form>
