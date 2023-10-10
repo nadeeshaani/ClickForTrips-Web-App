@@ -24,12 +24,14 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
+                                .requestMatchers("/api/?**", "booking/?**").permitAll() // Allow unrestricted access to URLs starting with "/api/"
+                                .requestMatchers("/customer", "/booking/?**").hasRole("ADMIN") // Match requests to "/customer/" and "/booking/" and their sub-paths
                                 .anyRequest().authenticated()
+
                 )
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
                 .userDetailsService(userDetailsService()); // Define your custom userDetailsService here
-
 
         return http.build();
     }
@@ -51,5 +53,7 @@ public class SecurityConfig {
                         .build()
         );
     }
+
+
 }
 
