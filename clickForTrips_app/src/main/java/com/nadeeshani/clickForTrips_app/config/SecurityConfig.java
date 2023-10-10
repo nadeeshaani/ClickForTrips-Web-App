@@ -24,8 +24,8 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/?**", "booking/?**").permitAll() // Allow unrestricted access to URLs starting with "/api/"
-                                .requestMatchers("/customer", "/booking/?**").hasRole("ADMIN") // Match requests to "/customer/" and "/booking/" and their sub-paths
+                                .requestMatchers("/api/?**", "/booking/?**").permitAll() // Allow unrestricted access to URLs starting with "/api/"
+                                .requestMatchers("/customer").hasRole("ADMIN") // Match requests to "/customer/" and "/booking/" and their sub-paths
                                 .anyRequest().authenticated()
 
                 )
