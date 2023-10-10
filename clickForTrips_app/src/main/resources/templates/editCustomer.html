@@ -8,6 +8,7 @@
     <title>Edit Customer</title>
 </head>
 <body>
+<header th:insert="header.html :: header"> </header>
 <div align="center" class="mt-5">
     <h2>Edit Customer</h2>
     <form method="post" th:action="@{/customer/save}" th:object="${customer}" class="jumbotron vertical-center mx-5 my-5">
