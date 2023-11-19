@@ -1,1 +1,0 @@
-# ClickForTrips-Web-App

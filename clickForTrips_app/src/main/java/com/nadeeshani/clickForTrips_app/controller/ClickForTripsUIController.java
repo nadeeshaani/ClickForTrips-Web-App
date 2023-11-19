@@ -8,6 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Controller
 public class ClickForTripsUIController {
     @Autowired
@@ -50,7 +55,17 @@ public class ClickForTripsUIController {
     }
 
     @PostMapping("/booking/save")
-    public String saveBooking(@ModelAttribute("booking")Booking booking){
+    public String saveBooking(@ModelAttribute("booking") Booking booking) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            Date parsedDate = sdf.parse(booking.getTime());
+            Time sqlTime = new Time(parsedDate.getTime());
+            booking.setTime(sqlTime.toString());
+        } catch (ParseException e) {
+            // Handle parsing exception
+            return "error-page"; // Redirect to an error page or handle it appropriately
+        }
+
         vehicleService.saveBooking(booking);
         return "redirect:/booking";
     }

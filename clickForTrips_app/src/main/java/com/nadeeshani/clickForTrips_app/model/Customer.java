@@ -1,6 +1,11 @@
 package com.nadeeshani.clickForTrips_app.model;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")

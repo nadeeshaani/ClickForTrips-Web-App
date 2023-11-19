@@ -1,9 +1,13 @@
 package com.nadeeshani.clickForTrips_app.model;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 
 @Entity
-@Table(name = "booking")
+@Table(name = "vehicle_service")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +15,7 @@ public class Booking {
     private Long id;
 
     @Column(name = "date")
-    private String date;
+    private Date date;
 
     @Column(name = "location")
     private String location;
@@ -20,7 +24,7 @@ public class Booking {
     private String message;
 
     @Column(name = "mileage")
-    private String mileage;
+    private Long mileage;
 
     @Column(name = "time")
     private String time;
@@ -39,11 +43,11 @@ public class Booking {
         this.id = id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -63,11 +67,11 @@ public class Booking {
         this.message = message;
     }
 
-    public String getMileage() {
+    public Long getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) {
+    public void setMileage(Long mileage) {
         this.mileage = mileage;
     }
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
@@ -46,7 +47,7 @@
                 <th>Email</th>
                 <th>Name</th>
                 <th>Username</th>
-                <th>Actions</th>
+                <th sec:authorize="hasRole('ADMIN')">Actions</th>
                 </thead>
 
                 <tbody>
@@ -57,7 +58,7 @@
                     <td th:text="${customer.email}"></td>
                     <td th:text="${customer.name}"></td>
                     <td th:text="${customer.username}"></td>
-                    <td>
+                    <td sec:authorize="hasRole('ADMIN')">
                         <div class="row mx-auto">
                             <form method="post" th:action="@{/customer/edit}" class="mx-2">
                                 <input type="hidden" name="customerId" th:value="${customer.id}"/>
