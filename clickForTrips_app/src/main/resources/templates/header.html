@@ -11,11 +11,12 @@
     </a>
     <div class="dropdown ml-auto">
         <button class="btn btn-dark dropdown-toggle mx-5" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                Logged in as <span sec:authentication="name" ></span>
-<!--            <span th:unless="${#authorization.expression('hasAuthority(''SCOPE_openid'')')}">-->
-<!--                Logged in as <span sec:authentication="name"></span>-->
-<!--            </span>-->
+             <span th:if="${#authorization.expression('hasAuthority(''SCOPE_openid'')')}">
+                Logged in as <span sec:authentication="principal.fullName" ></span>
+            </span>
+            <span th:unless="${#authorization.expression('hasAuthority(''SCOPE_openid'')')}">
+                Logged in as <span sec:authentication="name"></span>
+            </span>
         </button>
         <div class="dropdown-menu">
             <form th:action="@{/logout}" method="post" >

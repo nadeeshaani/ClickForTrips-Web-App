@@ -4,6 +4,10 @@ import com.nadeeshani.clickForTrips_app.model.Booking;
 import com.nadeeshani.clickForTrips_app.model.Customer;
 import com.nadeeshani.clickForTrips_app.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +16,7 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class ClickForTripsUIController {
@@ -21,6 +26,11 @@ public class ClickForTripsUIController {
     @GetMapping("/")
     String index(){
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
     @GetMapping("/customer")
@@ -94,6 +104,26 @@ public class ClickForTripsUIController {
     public String deleteBooking(@RequestParam("bookingId")String bookingId){
         vehicleService.deleteBooking(bookingId);
         return "redirect:/booking";
+    }
+
+    @RequestMapping("/oauthinfo")
+    @ResponseBody
+    public String oauthUserInfo(@RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
+                                @AuthenticationPrincipal OAuth2User oauth2User) {
+        return
+                "User Name: " + oauth2User.getName() + "<br/>" +
+                        "User Authorities: " + oauth2User.getAuthorities() + "<br/>" +
+                        "Client Name: " + authorizedClient.getClientRegistration().getClientName() + "<br/>" +
+                        this.prettyPrintAttributes(oauth2User.getAttributes());
+    }
+
+    private String prettyPrintAttributes(Map<String, Object> attributes) {
+        String acc = "User Attributes: <br/><div style='padding-left:20px'>";
+        for (String key : attributes.keySet()){
+            Object value = attributes.get(key);
+            acc += "<div>"+key + ":&nbsp" + value.toString() + "</div>";
+        }
+        return acc + "</div>";
     }
 
 
