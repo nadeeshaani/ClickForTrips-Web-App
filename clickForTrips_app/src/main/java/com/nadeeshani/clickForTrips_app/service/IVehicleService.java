@@ -9,6 +9,8 @@ public interface IVehicleService {
     List<Customer> fetchAllCustomers();
     List<Booking> fetchAllBookings();
 
+    public List<Booking> fetchBookingsByUsername(String username);
+
     void saveCustomer(Customer customer);
 
     void saveBooking(Booking booking);

@@ -16,6 +16,7 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -40,8 +41,10 @@ public class ClickForTripsUIController {
     }
 
     @GetMapping("/booking")
-    public String showAllBookings(Model model){
-        model.addAttribute("bookings", vehicleService.fetchAllBookings());
+    public String showUserBookings(Model model, @AuthenticationPrincipal OAuth2User user) {
+        String username = user.getAttribute("sub");
+        List<Booking> userBookings = vehicleService.fetchBookingsByUsername(username);
+        model.addAttribute("bookings", userBookings);
         return "booking";
     }
 

@@ -29,6 +29,11 @@ public class VehicleService implements IVehicleService{
     }
 
     @Override
+    public List<Booking> fetchBookingsByUsername(String username) {
+        return bookingRepository.findByUsername(username);
+    }
+
+    @Override
     public void saveCustomer(Customer customer) {
         customerRepository.save(customer);
 
