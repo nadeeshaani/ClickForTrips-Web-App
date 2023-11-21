@@ -8,13 +8,42 @@
 <body>
 <header th:insert="header.html :: header"> </header>
     <div align="center" class="jumbotron vertical-center mx-5">
-        <h2>ClickForTrips Management Console</h2>
+        <h1>ClickForTrips Management Console</h1>
+        <br><br>
+
+        <h3>User Info</h3>
+        <div id="userInfo"></div>
+
+        <script>
+            // Function to fetch userinfo and update HTML content
+            function fetchUserInfo() {
+                fetch('/userinfo')
+                    .then(response => response.text()) // Parse the response as text
+                    .then(data => {
+                        // Update userinfo div with fetched data
+                        document.getElementById('userInfo').innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching userinfo:', error);
+                    });
+            }
+
+            // Call fetchUserInfo function when the page loads
+            window.onload = fetchUserInfo;
+        </script>
+
+
+
+
         <div class="container">
             <a href="customer" class="btn btn-dark btn-lg my-5">Show all Customers</a>
         </div>
         <div class="container">
             <a href="booking" class="btn btn-dark btn-lg my-5">Show all Bookings</a>
         </div>
+
+
+
     </div>
 
 </body>

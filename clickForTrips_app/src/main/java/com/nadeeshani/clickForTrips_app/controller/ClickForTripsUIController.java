@@ -127,6 +127,42 @@ public class ClickForTripsUIController {
     }
 
 
+    @RequestMapping("/userinfo")
+    @ResponseBody
+    public String userInfo(@AuthenticationPrincipal OAuth2User user) {
+        String name = user.getAttribute("name");
+        String userEmail = user.getAttribute("email");
+        String userCountry = null;
+        String userPhoneNumber = null;
+        String username = user.getAttribute("sub");
+
+        // Accessing the 'address' attribute to retrieve country
+        Map<String, Object> addressMap = (Map<String, Object>) user.getAttribute("address");
+        if (addressMap != null) {
+            userCountry = (String) addressMap.get("country");
+        }
+
+        // Accessing the 'phone' attribute to retrieve phone number
+        userPhoneNumber = user.getAttribute("phone_number");
+
+        // Returning the user information
+        // Construct HTML content for userinfo
+        return  "<p>Username: " + username + "</p>" +
+                "<p>Name: " + name + "</p>" +
+                "<p>=Email: " + userEmail + "</p>" +
+                "<p>Country: " + userCountry + "</p>" +
+                "<p>Phone Number: " + userPhoneNumber + "</p>";
+
+    }
+
+
+
+
+
+
+
+
+
 
 
 }
