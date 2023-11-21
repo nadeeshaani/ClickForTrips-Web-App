@@ -67,20 +67,25 @@
                 <td th:text="${booking.mileage}"></td>
                 <td th:text="${booking.message}"></td>
                 <td>
-                    <div class="row mx-auto">
-                        <form method="post" action="/booking/edit" class="mx-2">
+                    <!-- Check if the booking date is in the future -->
+                    <div class="row mx-auto" th:if="${#dates.createNow().before(booking.date)}">
+                        <form method="post" th:action="@{/booking/edit}" class="mx-2">
                             <input type="hidden" name="bookingId" th:value="${booking.id}"/>
-                            <button type="submit" name="submit" value="value" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>
+                            <button type="submit" name="submit" value="value" title="Edit" data-toggle="tooltip">
+                                <i class="material-icons">&#xE254;</i>
+                            </button>
                         </form>
-
                     </div>
                 </td>
                 <td>
-                    <div class="row mx-auto">
-                    <form method="post" onSubmit="return confirm('Are you sure you want to delete?');" action="/booking/delete" class="mx-2">
-                        <input type="hidden" name="bookingId" th:value="${booking.id}"/>
-                        <button type="submit" name="submit" value="value" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></button>
-                    </form>
+                    <!-- Check if the booking date is in the future -->
+                    <div class="row mx-auto" th:if="${#dates.createNow().before(booking.date)}">
+                        <form method="post" onSubmit="return confirm('Are you sure you want to delete?');" th:action="@{/booking/delete}" class="mx-2">
+                            <input type="hidden" name="bookingId" th:value="${booking.id}"/>
+                            <button type="submit" name="submit" value="value" title="Delete" data-toggle="tooltip">
+                                <i class="material-icons">&#xE872;</i>
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>

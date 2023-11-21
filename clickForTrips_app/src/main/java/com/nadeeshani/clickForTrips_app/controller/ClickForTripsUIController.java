@@ -24,6 +24,7 @@ public class ClickForTripsUIController {
     @Autowired
     private VehicleService vehicleService;
 
+
     @GetMapping("/")
     String index(){
         return "index";
@@ -67,21 +68,6 @@ public class ClickForTripsUIController {
         return "redirect:/customer";
     }
 
-//    @PostMapping("/booking/save")
-//    public String saveBooking(@ModelAttribute("booking") Booking booking) {
-//        try {
-//            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-//            Date parsedDate = sdf.parse(booking.getTime());
-//            Time sqlTime = new Time(parsedDate.getTime());
-//            booking.setTime(sqlTime.toString());
-//        } catch (ParseException e) {
-//            // Handle parsing exception
-//            return "error-page"; // Redirect to an error page or handle it appropriately
-//        }
-//
-//        vehicleService.saveBooking(booking);
-//        return "redirect:/booking";
-//    }
 
         @PostMapping("/booking/save")
     public String saveBooking(@ModelAttribute("booking") Booking booking, @AuthenticationPrincipal OAuth2User user) {
