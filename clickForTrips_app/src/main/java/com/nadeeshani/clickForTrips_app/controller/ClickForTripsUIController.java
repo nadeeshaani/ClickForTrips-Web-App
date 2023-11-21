@@ -64,8 +64,34 @@ public class ClickForTripsUIController {
         return "redirect:/customer";
     }
 
-    @PostMapping("/booking/save")
-    public String saveBooking(@ModelAttribute("booking") Booking booking) {
+//    @PostMapping("/booking/save")
+//    public String saveBooking(@ModelAttribute("booking") Booking booking) {
+//        try {
+//            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+//            Date parsedDate = sdf.parse(booking.getTime());
+//            Time sqlTime = new Time(parsedDate.getTime());
+//            booking.setTime(sqlTime.toString());
+//        } catch (ParseException e) {
+//            // Handle parsing exception
+//            return "error-page"; // Redirect to an error page or handle it appropriately
+//        }
+//
+//        vehicleService.saveBooking(booking);
+//        return "redirect:/booking";
+//    }
+
+        @PostMapping("/booking/save")
+    public String saveBooking(@ModelAttribute("booking") Booking booking, @AuthenticationPrincipal OAuth2User user) {
+
+        // Set Okta username to the booking entity
+            String oktaUsername = user.getAttribute("sub");
+            if (oktaUsername != null && !oktaUsername.isEmpty()) {
+                booking.setUsername(oktaUsername);
+            } else {
+                // Handle the case when Okta username is empty or null
+                return "error-page"; // Redirect to an error page or handle it appropriately
+            }
+
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             Date parsedDate = sdf.parse(booking.getTime());
@@ -79,6 +105,8 @@ public class ClickForTripsUIController {
         vehicleService.saveBooking(booking);
         return "redirect:/booking";
     }
+
+
 
     @PostMapping("/customer/edit")
     public String editCustomer(@RequestParam("customerId")String customerId, Model model){

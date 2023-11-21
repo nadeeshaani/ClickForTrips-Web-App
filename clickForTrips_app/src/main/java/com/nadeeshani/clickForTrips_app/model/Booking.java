@@ -88,7 +88,9 @@ public class Booking {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if (username != null && !username.isEmpty()) {
+            this.username = username;
+        }
     }
 
     public String getVehicleNo() {
