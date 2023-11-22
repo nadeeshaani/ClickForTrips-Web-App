@@ -25,11 +25,14 @@ public class ClickForTripsUIController {
     private VehicleService vehicleService;
 
 
-    @GetMapping("/")
+    //checked working for both
+    @GetMapping("/clickfortrips/")
     String index(){
         return "index";
     }
 
+
+    //checked -> /clickfortrips isn't coming
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -41,6 +44,7 @@ public class ClickForTripsUIController {
         return "customer";
     }
 
+    //checked -> /clickfortrips isn't coming
     @GetMapping("/booking")
     public String showUserBookings(Model model, @AuthenticationPrincipal OAuth2User user) {
         String username = user.getAttribute("sub");
@@ -166,7 +170,7 @@ public class ClickForTripsUIController {
         // Construct HTML content for userinfo
         return  "<p>Username: " + username + "</p>" +
                 "<p>Name: " + name + "</p>" +
-                "<p>=Email: " + userEmail + "</p>" +
+                "<p>Email: " + userEmail + "</p>" +
                 "<p>Country: " + userCountry + "</p>" +
                 "<p>Phone Number: " + userPhoneNumber + "</p>";
 

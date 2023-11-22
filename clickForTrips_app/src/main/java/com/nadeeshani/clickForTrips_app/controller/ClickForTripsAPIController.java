@@ -20,7 +20,7 @@ public class ClickForTripsAPIController {
         return vehicleService.fetchAllCustomers();
     }
 
-    @RequestMapping("/booking")
+    @RequestMapping("/clickfortrips/booking")
     List<Booking> fetchAllBookings(){
         return vehicleService.fetchAllBookings();
     }

@@ -6,8 +6,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth" th:fragment="header">
-    <a class="navbar-brand" href="/">
-        <img src="/images/logo.png" style="max-width:40px">
+    <a class="navbar-brand" href="/clickfortrips">
+        <img src="/clickfortrips/images/logo.png" style="max-width:40px">
     </a>
     <div class="dropdown ml-auto">
         <button class="btn btn-dark dropdown-toggle mx-5" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,7 +19,7 @@
             </span>
         </button>
         <div class="dropdown-menu">
-            <form th:action="@{/logout}" method="post" >
+            <form th:action="@{/clickfortrips/logout}" method="post" >
                 <button class="dropdown-item">Logout</button>
             </form>
         </div>

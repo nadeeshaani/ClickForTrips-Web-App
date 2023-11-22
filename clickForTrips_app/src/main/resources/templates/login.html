@@ -24,7 +24,7 @@
             <div class="card-header">
                 <h3>Sign In</h3>
                 <div class="d-flex justify-content-end social_icon">
-                    <span><img src="/images/logo.png" style="max-width:100px"></span>
+                    <span><img src="/clickfortrips/images/logo.png" style="max-width:100px"></span>
                 </div>
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">
@@ -39,7 +39,7 @@
 
             </div>
             <div class="card-body">
-                <form name="f" th:action="@{/login}" method="post">
+                <form name="f" th:action="@{/clickfortrips/login}" method="post">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -59,7 +59,7 @@
                 </form>
             </div>
             <div class="card-footer">
-                <a class="btn btn-block btn-primary" href="/oauth2/authorization/okta"><i class="fa fa-sign-in-alt mx-2"></i>Sign In with Okta</a>
+                <a class="btn btn-block btn-primary" href="/clickfortrips/oauth2/authorization/okta"><i class="fa fa-sign-in-alt mx-2"></i>Sign In with Okta</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+/* styles.css */
+html,body{
+    background-image: url('./static/images/login_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: visible;
+}
+
+
