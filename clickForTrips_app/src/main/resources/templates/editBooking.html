@@ -65,9 +65,21 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label front-weight-bold" >Vehicle Number</label>
+            <label class="col-sm-2 col-form-label front-weight-bold">Vehicle Number</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" th:field="*{vehicleNo}" required>
+                <select class="form-control" name="vehicleNo" th:field="*{vehicleNo}" required>
+                    <option value="">Select vehicle number</option>
+                    <option value="ABC-1234">ABC-1234</option>
+                    <option value="XYZ-5678">XYZ-5678</option>
+                    <option value="KLM-9101">KLM-9101</option>
+                    <option value="DEF-2345">DEF-2345</option>
+                    <option value="GHI-6789">GHI-6789</option>
+                    <option value="WHT-3229">WHT-3229</option>
+                    <option value="IDK-9111">IDK-9111</option>
+                    <option value="WYM-5555">WYM-5555</option>
+                    <option value="WIN-4299">WIN-4299</option>
+                    <option value="YOB-1999">YOB-1999</option>
+                </select>
             </div>
         </div>
 
@@ -85,6 +97,8 @@
                 <input type="time" class="form-control" th:field="*{time}" required>
             </div>
         </div>
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
         <div align="center">
             <button type="submit" class="btn btn-dark">Upate</button>
