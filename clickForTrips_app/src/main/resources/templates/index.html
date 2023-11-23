@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="/clickfortrips/static/css/indexStyles.css" rel="stylesheet"> <!-- Not working yet -->
+    <link href="/clickfortrips/static/css/loginStyles.css" rel="stylesheet"> <!-- Not working yet -->
     <title>Title</title>
     <style>
         html,body{
-            background-image: url("/static/images/login_bg.jpg");
+            background-image: url("https://images.unsplash.com/photo-1518790946172-be31b801e0b6?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
             background-size: cover;
             background-repeat: no-repeat;
             height: 100%;
@@ -21,8 +21,8 @@
 <div class="container">
     <br>
     <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <h2>
+        <div class="col-12 text-center" style="color:white">
+            <h2 >
                 <span th:if="${#authorization.expression('hasAuthority(''SCOPE_openid'')')}">
                     Welcome On Board <span sec:authentication="principal.fullName"></span>!
                 </span>
@@ -32,12 +32,12 @@
     <br>
     <br>
     <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Your Information</h3>
+        <div class="card" style="background-color:rgba(0,0,0,0.8) !important;">
+            <div class="card-header" style="background-color: black;">
+                <h3 style="color: white;">Your Information</h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-body" style="color:white; font-weight: bold">
 
                 <div id="userInfo"></div>
 
@@ -74,12 +74,12 @@
 <div align="center" class="jumbotron vertical-center mx-5">
 
 
-    <br><br>
+    <br>
 
 
     <div class="container">
 <!--        clickfortrips coming-->
-        <a href="/clickfortrips/booking" class="btn btn-dark btn-lg my-5">Show all Bookings</a>
+        <a href="/clickfortrips/booking" class="btn btn-dark btn-lg my-5" style="background-color: forestgreen; color: white">Show all Bookings</a>
     </div>
 
 </div>

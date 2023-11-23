@@ -168,11 +168,11 @@ public class ClickForTripsUIController {
 
         // Returning the user information
         // Construct HTML content for userinfo
-        return  "<p>Username: " + username + "</p>" +
-                "<p>Name: " + name + "</p>" +
-                "<p>Email: " + userEmail + "</p>" +
-                "<p>Country: " + userCountry + "</p>" +
-                "<p>Phone Number: " + userPhoneNumber + "</p>";
+        return  "<p>Username: <br>" + username + "</p>" +
+                "<p>Name: <br>" + name + "</p>" +
+                "<p>Email: <br>" + userEmail + "</p>" +
+                "<p>Country: <br>" + userCountry + "</p>" +
+                "<p>Phone Number: <br>" + userPhoneNumber + "</p>";
 
     }
 
