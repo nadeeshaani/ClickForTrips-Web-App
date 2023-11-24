@@ -30,7 +30,7 @@ public class ClickForTripsUIController {
 
 
     //checked working for both
-    @GetMapping("/clickfortrips/")
+    @GetMapping("/")
     String index(){
         return "index";
     }
