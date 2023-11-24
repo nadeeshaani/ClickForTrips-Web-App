@@ -3,6 +3,10 @@ package com.nadeeshani.clickForTrips_app.controller;
 import com.nadeeshani.clickForTrips_app.model.Booking;
 import com.nadeeshani.clickForTrips_app.model.Customer;
 import com.nadeeshani.clickForTrips_app.service.VehicleService;
+import com.okta.sdk.authc.credentials.TokenClientCredentials;
+import com.okta.sdk.client.Client;
+import com.okta.sdk.client.Clients;
+import com.okta.sdk.resource.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -150,40 +154,41 @@ public class ClickForTripsUIController {
 
     @RequestMapping("/userinfo")
     @ResponseBody
-    public String userInfo(@AuthenticationPrincipal OAuth2User user) {
-        String name = user.getAttribute("name");
-        String userEmail = user.getAttribute("email");
-        String userCountry = null;
-        String userPhoneNumber = null;
-        String username = user.getAttribute("sub");
+    public String userInfo(@AuthenticationPrincipal OAuth2User oauth2User) {
+        String name = oauth2User.getAttribute("name");
+        String userEmail = oauth2User.getAttribute("email");
+        String userId = oauth2User.getAttribute("sub");
+        //https://dev-17371279-admin.okta.com/api/v1/users/00udcvpczthtxOmwL5d7
+        // Replace with your actual Okta domain and API token
+        String oktaDomain = "https://dev-17371279.okta.com";
+        String oktaApiToken = "0098cOcvNXzzJomPEQC7qe__QZ-9R0j33wnuO1ebvk";
 
-        // Accessing the 'address' attribute to retrieve country
-        Map<String, Object> addressMap = (Map<String, Object>) user.getAttribute("address");
-        if (addressMap != null) {
-            userCountry = (String) addressMap.get("country");
+        try {
+            // Initialize the Okta client
+            Client oktaClient = Clients.builder()
+                    .setOrgUrl(oktaDomain)
+                    .setClientCredentials(new TokenClientCredentials(oktaApiToken))
+                    .build();
+
+            // Get the User object from Okta using the user ID
+            User oktaUser = oktaClient.getUser(userId);
+
+            // Extract the required attributes from the Okta User object
+            String country = oktaUser.getProfile().get("country").toString();
+            String mobilePhone = oktaUser.getProfile().get("mobilePhone").toString();
+            String city = oktaUser.getProfile().get("city").toString();
+
+            // Construct HTML content for displaying the profile information
+            return  "<p>Username: <br>" + userId + "</p>" +
+                    "<p>Name: <br>" + name + "</p>" +
+                    "<p>Email: <br>" + userEmail + "</p>" +
+                    "<p>Country: <br>" + country + "</p>" +
+                    "<p>Mobile Phone: <br>" + mobilePhone + "</p>" +
+                    "<p>City: <br>" + city + "</p>";
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the exception for debugging
+            return "Error fetching user profile"; // Return an error message to the client
         }
-
-        // Accessing the 'phone' attribute to retrieve phone number
-        userPhoneNumber = user.getAttribute("phone_number");
-
-        // Returning the user information
-        // Construct HTML content for userinfo
-        return  "<p>Username: <br>" + username + "</p>" +
-                "<p>Name: <br>" + name + "</p>" +
-                "<p>Email: <br>" + userEmail + "</p>" +
-                "<p>Country: <br>" + userCountry + "</p>" +
-                "<p>Phone Number: <br>" + userPhoneNumber + "</p>";
-
     }
-
-
-
-
-
-
-
-
-
-
 
 }
