@@ -1,5 +1,5 @@
 # ClickForTrips-Web-App
-Click for Trips is a web application developed with Java, and Springboot to learn and practice the basics of Web Application Security
+Click for Trips is a web application developed with Java, and Springboot incorporating Spring Security and Okta to learn and practice the basics of Web Application Security
 
 ## Screenshots
 ![login_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/screenshot_login.png?raw=true)
