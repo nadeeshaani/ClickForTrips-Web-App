@@ -1,6 +1,14 @@
 # ClickForTrips-Web-App
 Click for Trips is a web application developed with Java, and Springboot to learn and practice the basics of Web Application Security
 
+#### Screenshots
+![login_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/screenshot_login.png?raw=true)
+![okta_login_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image_oktalogin.png?raw=true)
+![okta_signup_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image_signup_okta.png?raw=true)
+![index_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image_index.png?raw=true)
+![bookings_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image_bookings.png?raw=true)
+![addbooking_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image_addlogin.png?raw=true)
+
 # Run your application in Tomcat 9 with HTTPS with the following steps
 ### 1. Configure HTTPS
    - Obtain or create an SSL certificate.
