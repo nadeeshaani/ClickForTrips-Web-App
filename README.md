@@ -7,11 +7,11 @@ Click for Trips is a web application developed with Java, and Springboot to lear
    - Configure Tomcat to use HTTPS by updating the server's server.xml file
      Replace the following `keystoreFile` and `keystorePass` with your actual values
       ```
-      Connector SSLEnabled="true" acceptCount="100" clientAuth="false"
+      <Connector SSLEnabled="true" acceptCount="100" clientAuth="false"
       disableUploadTimeout="true" enableLookups="false" maxThreads="25"
       port="8443" keystoreFile="{path_to_keystore}/.keystore" keystorePass="{password_of_keystore}"
       protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https"
-      secure="true" sslProtocol="TLS"
+      secure="true" sslProtocol="TLS"/>
   
 
 
