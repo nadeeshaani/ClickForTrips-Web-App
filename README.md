@@ -23,7 +23,10 @@ Click for Trips is a web application developed with Java, and Springboot to lear
   - Open this project in IntelliJ IDEA.
   - Install and configure the Smart Tomcat plugin (if not installed).
   - Configure Smart Tomcat with your Tomcat 9 server.
-    - Go to edit configurations in IntelliJ IDEA
+    - Go to edit configurations in IntelliJ IDEA and press add configuration button as depicted below
+      ![config_img](https://github.com/nadeeshaani/ClickForTrips-Web-App/blob/main/readme_images/image1-configuration.png?raw=true)
+
+    - Then from the list, choose smart Tomcat
     - 
     
      
