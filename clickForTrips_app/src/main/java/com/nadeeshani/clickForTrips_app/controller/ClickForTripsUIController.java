@@ -158,10 +158,10 @@ public class ClickForTripsUIController {
         String name = oauth2User.getAttribute("name");
         String userEmail = oauth2User.getAttribute("email");
         String userId = oauth2User.getAttribute("sub");
-        //https://dev-17371279-admin.okta.com/api/v1/users/00udcvpczthtxOmwL5d7
+        
         // Replace with your actual Okta domain and API token
-        String oktaDomain = "https://dev-17371279.okta.com";
-        String oktaApiToken = "0098cOcvNXzzJomPEQC7qe__QZ-9R0j33wnuO1ebvk";
+        String oktaDomain = "YOUR_OKTA_DOMAIN"; 
+        String oktaApiToken = "YOUR_OKTA_API_TOKEN"; 
 
         try {
             // Initialize the Okta client
