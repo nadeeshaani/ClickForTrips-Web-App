@@ -12,16 +12,15 @@ Click for Trips is a web application developed with Java, and Springboot incorpo
 
 ## Configuration
 1. Open `application.properties` (or relevant configuration file).
-2. Replace the placeholders with the following provided actual values or add them as runtime variables.
+2. Replace the placeholders with real values or add them as runtime environment variables.
    ```
-   ${SPRING_DATASOURCE_URL} -> jdbc:mysql://172.187.178.153:3306/isec_assessment2
-   ${SPRING_DATASOURCE_USERENAME} -> isec
-   ${SPRING_DATASOURCE_PASSWORD} -> EUHHaYAmtzbv
+   ${SPRING_DATASOURCE_URL}
+   ${SPRING_DATASOURCE_USERENAME}
+   ${SPRING_DATASOURCE_PASSWORD}
  
-   {OKTA_OAUTH_ISSUER} -> https://dev-17371279.okta.com/oauth2/default
-   ${OKTA_CLIENT_ID} -> 0oadcx4kgrRSe3iey5d7
-   ${OKTA_CLIENT_SECRET} -> ox8gQbGPRZruOs_UElAvr4KawKrEIGRMYZkpo1prZGoMcMn6U0v1eTw59DTDA0ns
-  
+   {OKTA_OAUTH_ISSUER}
+   ${OKTA_CLIENT_ID}
+   ${OKTA_CLIENT_SECRET}
 
 
 ## Run your application in Tomcat 9 with HTTPS with the following steps
